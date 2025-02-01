@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> XLICON V2 Deploy on Koyeb</title>
+  <title>Deploy on Koyeb</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -104,12 +104,55 @@
       font-weight: bold;
       display: none;
     }
+    @media (max-width: 590px) {
+  .container {
+    padding: 20px;
+    margin: 15px;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  label {
+    font-size: 0.9rem;
+  }
+  
+  input[type="text"] {
+    font-size: 0.9rem;
+    padding: 8px;
+    width: 90%; 
+    margin: 0 auto 20px;
+    display: block; 
+  }
+  
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+  
+  .generated-text {
+    font-size: 0.95rem;
+  }
+  
+  a img {
+    width: 180px;
+  }
+  
+  label[for="notice"] {
+    font-size: 0.95rem;
+    color: #d32f2f;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+}
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h2>Deploy Your XLICON Fork on Koyeb</h2>
+    <h2>Deploy Your Fork on Koyeb</h2>
     <label for="notice">#NOTE FORK REPO BEFORE CLICKING THIS# </label>
     <br>
     <label for="githubUsername">Enter your GitHub Username:</label>
