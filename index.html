@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> XLICON V2 Deploy on Koyeb</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      display: block;
+      color: #555;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #6c63ff;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #4e4bff;
+    }
+
+    .disco-light {
+      width: 50px;
+      height: 50px;
+      background: conic-gradient(#ff0000, #00ff00, #0000ff, #ff0000);
+      border-radius: 50%;
+      margin: 20px auto;
+      animation: spin 1.5s infinite linear;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    a img {
+      width: 200px;
+      transition: transform 0.3s;
+    }
+
+    a img:hover {
+      transform: scale(1.1);
+    }
+
+    .generated-text {
+      text-align: center;
+      margin: 15px 0;
+      color: #4a4a4a;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Deploy Your XLICON Fork on Koyeb</h2>
+    <label for="notice">#NOTE FORK REPO BEFORE CLICKING THIS# </label>
+    <br>
+    <label for="githubUsername">Enter your GitHub Username:</label>
+    <input type="text" id="githubUsername" placeholder="e.g., your-username">
+    <button onclick="updateDeployLink()">Generate Deploy Link</button>
+
+    <div class="disco-light"></div>
+    <div id="generatedText" class="generated-text">Button generated! Click on it.</div>
+    <a id="deployButton" href="#" target="_blank" style="display: none;">
+      <img src="https://www.koyeb.com/static/images/deploy/button.svg" alt="Deploy on Koyeb">
+    </a>
+  </div>
+
+  <script>
+    function updateDeployLink() {
+      const username = document.getElementById("githubUsername").value.trim();
+      if (username) {
+        const repo = "XLICON-V2-MD"; 
+        const deployUrl = `https://app.koyeb.com/services/new?service_type=web&step=review&type=git&repository=github.com%2F${username}%2F${repo}&instance_type=free&regions=fra`;
+        const deployButton = document.getElementById("deployButton");
+        const generatedText = document.getElementById("generatedText");
+        deployButton.href = deployUrl;
+        deployButton.style.display = "inline-block"; 
+        generatedText.style.display = "block";
+      } else {
+        alert("Please enter a GitHub username.");
+      }
+    }
+  </script>
+
+</body>
+</html>
